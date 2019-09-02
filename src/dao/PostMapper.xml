@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.PostMapper">
+
+    <resultMap type="pojo.Post" id="postResultMap">
+        <result property="id" column="pid" />
+        <result property="content" column="pcontent" />
+        <result property="userId" column="puid" />
+        <association property="user" javaType="pojo.User">
+            <id property="id" column="uid"/>
+            <result property="name" column="uname"/>
+        </association>
+    </resultMap>
+
+    <select id="getPostByID" parameterType="int" resultMap="postResultMap">
+        select p.id pid,p.content pcontent,p.userid puid ,u.id uid,u.name uname from `Post` p,`user` u  where u.id = p.userid and p.id = #{id}
+    </select>
+
+    <select id="getPostList"  resultMap="postResultMap">
+        select p.id pid,p.content pcontent,p.userid puid ,u.id uid,u.name uname from `Post` p,`user` u  where u.id = p.userid
+    </select>
+
+    <insert id="insertPost" parameterType="Post">
+        INSERT INTO `Post`(content,userid) VALUES(#{content},#{userid})
+    </insert>
+
+    <update id="updatePost" parameterType="Post">
+        UPDATE `Post` SET `content`=#{content},`userid`=#{userid} WHERE id =#{id}
+    </update>
+
+    <delete id="deletePost" parameterType="int">
+        DELETE FROM `Post` WHERE id = #{id}
+    </delete>
+
+</mapper>
