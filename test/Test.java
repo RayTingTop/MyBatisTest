@@ -38,6 +38,13 @@ public class Test {
             session.close();
         }
     }
+    /**
+     * 测试方法
+     */
+    public void test(){
+        System.out.println(11);
+    }
+
 }
 
 
