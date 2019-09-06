@@ -1,5 +1,4 @@
 import org.junit.Test;
-
 import java.io.*;
 
 /**
@@ -9,62 +8,24 @@ import java.io.*;
 public class IOTest {
     String path ="D:/test.txt";
     File file = new File(path);
-    @Test
+
     /**
      * 测试方法
      */
+    @Test
     public void testFile(){
+        char c;
+        // 使用 System.in 创建 BufferedReader
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("输入字符, 按下 'q' 键退出。");
+        // 读取字符
         try {
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-            System.out.println("file.exists() = " + file.exists());
-
-            FileOutputStream os = new FileOutputStream(file);
-
-            FileInputStream is = new FileInputStream(file);
-            byte[] bytes = new byte[]{};
-            is.read(bytes);
-
-            System.out.println("bytes.length = " + bytes.length);
-            for (int i = 0; i < bytes.length; i++) {
-                System.out.print(bytes[i]);
-            }
-
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+            do {
+                c = (char) br.read();
+                System.out.println(c);
+            } while (c != 'q');
+        }catch (IOException e){
             e.printStackTrace();
         }
     }
-
-
-    /**
-     * 测试方法
-     */
-    @Test
-    public  void testBufferedReader(){
-//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//        String test = null;
-//        try {
-//            test = reader.readLine();//从键盘读取
-//            System.out.println("test = " + test);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-        try {
-            BufferedReader reader1 = new BufferedReader(new FileReader(file));
-            System.out.println("reader1.readLine() = " + reader1.readLine());
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
 }
