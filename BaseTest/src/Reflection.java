@@ -11,7 +11,6 @@ import java.lang.reflect.Method;
 public class Reflection {
     public static void main(String[] args) throws ClassNotFoundException {
 
-
         Class class1=Class.forName("Person");//加载类
 
         Person person = new Person();//新实例
@@ -59,7 +58,6 @@ public class Reflection {
             System.out.println(declaredMethods[i]);
 
         }
-
 
         try {
             System.out.println("\n6.根据名称获取所有public方法(包括继承的，实现接口的)：----------------------------");
@@ -169,3 +167,73 @@ class Person{
                 '}';
     }
 }
+/**
+ * 运行结果：
+
+ 无参构造
+ class1==class2:true
+
+ class1.getName() = Person
+ 1.所有public属性：----------------------------
+ public java.lang.String Person.favorite
+
+ 2.所有属性：----------------------------
+ private java.lang.String Person.name
+ private int Person.age
+ public java.lang.String Person.favorite
+
+ 3.按名称获取属性：----------------------------
+ class1.getField()public java.lang.String Person.favorite
+ class1.getDeclaredField()private java.lang.String Person.name
+
+ 4.获取所有public方法(包括继承的，实现接口的)：----------------------------
+ 14
+ public java.lang.String Person.toString()
+ public java.lang.String Person.getName()
+ public void Person.setName(java.lang.String)
+ public int Person.getAge()
+ public void Person.setAge(int)
+ public void Person.speak()
+ public final void java.lang.Object.wait() throws java.lang.InterruptedException
+ public final void java.lang.Object.wait(long,int) throws java.lang.InterruptedException
+ public final native void java.lang.Object.wait(long) throws java.lang.InterruptedException
+ public boolean java.lang.Object.equals(java.lang.Object)
+ public native int java.lang.Object.hashCode()
+ public final native java.lang.Class java.lang.Object.getClass()
+ public final native void java.lang.Object.notify()
+ public final native void java.lang.Object.notifyAll()
+
+ 5.获取获取所有方法(包括实现接口，但不包括继承的)：----------------------------
+ public java.lang.String Person.toString()
+ public java.lang.String Person.getName()
+ public void Person.setName(java.lang.String)
+ public int Person.getAge()
+ private java.lang.String Person.getInfo()
+ public void Person.setAge(int)
+ public void Person.speak()
+
+ 6.根据名称获取所有public方法(包括继承的，实现接口的)：----------------------------
+ public int Person.getAge()
+
+ 7.根据名称获取获取所有方法(包括实现接口，但不包括继承的)：----------------------------
+ private java.lang.String Person.getInfo()
+
+
+ 8.获取实例newInstance：----------------------------
+ 无参构造
+ 无参构造
+ 1173230247
+ 856419764
+ 621009875
+
+ 8.使用构造器方式newInstance：----------------------------
+ 有参构造
+ My name is jack. I'm 18 years old
+
+ 8.通过反射调用普通方法：----------------------------
+ My name is null. I'm 12 years old
+
+ 8.通过反射设置属性：----------------------------
+ My name is tom. I'm 0 years old
+
+ * */
