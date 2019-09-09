@@ -4,8 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BaseTest/BaseTest.iml" filepath="$PROJECT_DIR$/BaseTest/BaseTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/MybatisTest1.iml" filepath="$PROJECT_DIR$/MybatisTest1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mavendemo/mavendemo.iml" filepath="$PROJECT_DIR$/mavendemo/mavendemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/untitled/mavendemo (1) (com.huarentang.maven).iml" filepath="$PROJECT_DIR$/untitled/mavendemo (1) (com.huarentang.maven).iml" />
     </modules>
   </component>
 </project>

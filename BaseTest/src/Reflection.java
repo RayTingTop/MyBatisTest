@@ -7,6 +7,8 @@ import java.lang.reflect.Method;
  * @author RayTing
  * @date 2019-09-06 9:27
  * 关于Java反射机制测试
+ * 反射机制指的是程序在运行时能够获取自身的信息，
+ * java中，只要给定类的名字，就可以通过反射机制来获得类的所有信息。
  */
 public class Reflection {
     public static void main(String[] args) throws ClassNotFoundException {
