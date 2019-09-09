@@ -1,11 +1,12 @@
 package pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * 用户
  */
-public class User {
+public class User implements Serializable {//使用ehCache缓存到本地磁盘，需要将对象序列化，否则无法保存
     private int id;
     private String name;
     private List<Post> postList;

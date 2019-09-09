@@ -5,7 +5,7 @@ import pojo.User;
 
 import java.util.List;
 
-public interface UserMapper {
+public interface UserMapper{
     /**
      * 根据id查询
      * @param id

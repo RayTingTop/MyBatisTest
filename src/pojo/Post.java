@@ -1,9 +1,11 @@
 package pojo;
 
+import java.io.Serializable;
+
 /**
  * 评论
  */
-public class Post {
+public class Post implements Serializable {//使用ehCache缓存到本地磁盘，需要将对象序列化，否则无法保存
     private int id;
     private int userId;
     private String content;
